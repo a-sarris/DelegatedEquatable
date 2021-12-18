@@ -1,7 +1,7 @@
 # DelegatedEquatable
 
 A property wrapper that allows to delegate the Equatable implementation in one of the object's (Equatable conforming) properties.
-This delegation allows the automatic Equatable conformance without manually implementing `==`.
+This delegation allows the automatic Equatable conformance synthesis without manually implementing `==` even though one of the properties does not itself conform to Equatable.
 
 Usage of this should be done with care and only when the use case fits the requirements.
 
@@ -25,7 +25,7 @@ struct Bar: Equatable {
     @DelegatedEquatable(\.type) // delegates the equality check to the property type of Foo protocol.
     var type: Foo
 
-// init should be implemented by the developer
+// init should be manually implemented
     init(name: String,
          type: Foo) {
 
